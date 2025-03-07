@@ -1,0 +1,15 @@
+﻿@model ImagenesZapatilla
+
+<div>
+	<h2>@ViewData["posicion"] de @ViewData["ultimo"]</h2>
+	<ul class="list-group list-group-horizontal">
+
+		<li class="list-group-item"><button id="btnprimero">Primero</button></li>
+		<li class="list-group-item"><button id="btnanterior">Anterior</button></li>
+		<li class="list-group-item"><button id="btnsiguiente">Siguiente</button></li>
+		<li class="list-group-item"><button id="btnultimo">Ultimo</button></li>
+
+	</ul>
+
+	<img src="@Model.Imagen" alt="Alternate Text" style="width:360px" />
+</div>

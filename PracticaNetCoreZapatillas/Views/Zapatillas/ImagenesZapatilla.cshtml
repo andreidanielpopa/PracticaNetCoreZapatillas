@@ -1,0 +1,15 @@
+﻿@model ImagenesZapatilla
+
+<div>
+	<h2>@ViewData["posicion"] de @ViewData["ultimo"]</h2>
+	<ul class="list-group list-group-horizontal">
+
+		<li class="list-group-item"><a asp-controller="Zapatillas" asp-action="ImagenesZapatilla" asp-route-id="@Model.IdProducto" asp-route-posicion="">Primero</a></li>
+		<li class="list-group-item"><a asp-controller="Zapatillas" asp-action="ImagenesZapatilla" asp-route-id="@Model.IdProducto" asp-route-posicion="@ViewData["anterior"]">Anterior</a></li>
+		<li class="list-group-item"><a asp-controller="Zapatillas" asp-action="ImagenesZapatilla" asp-route-id="@Model.IdProducto" asp-route-posicion="@ViewData["siguiente"]">Siguiente</a></li>
+		<li class="list-group-item"><a asp-controller="Zapatillas" asp-action="ImagenesZapatilla" asp-route-id="@Model.IdProducto" asp-route-posicion="@ViewData["ultimo"]">Ultimo</a></li>
+
+	</ul>
+
+	<img src="@Model.Imagen" alt="Alternate Text" style="width:360px"/>
+</div>
