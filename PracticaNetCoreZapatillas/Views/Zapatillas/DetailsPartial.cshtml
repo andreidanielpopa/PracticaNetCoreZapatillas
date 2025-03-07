@@ -4,29 +4,29 @@
 @section Scripts {
     <script>
         $(document).ready(function(){
-            // Se definen las variables usando valores pasados desde el controlador.
+           
             var idProducto = '@Model.IdProducto';
-            var posicion = parseInt('@(ViewData["posicion"] ?? "1")'); // posición inicial, default a 1
-            var numReg = parseInt('@(ViewData["ultimo"] ?? "1")');     // total de registros
+            var posicion = parseInt('@(ViewData["posicion"] ?? "1")'); 
+            var numReg = parseInt('@(ViewData["ultimo"] ?? "1")');     
 
-            // Función para cargar el partial view con la posición deseada
+            
             function loadPartial(pos) {
-                // Actualizamos la variable de posición
+                
                 posicion = pos;
-                // Construimos la URL de forma dinámica
+                
                 var url = '@Url.Action("_PartialImagenes", "Zapatillas")' + '?id=' + idProducto + '&posicion=' + pos;
                 $("#container").load(url);
             }
 
-            // Cargamos inicialmente el partial view con la posición actual
+           
             loadPartial(posicion);
 
-            // Al pulsar "Primero", se carga la posición 1
+            
             $(document).on("click", "#btnprimero", function(){
                 loadPartial(1);
             });
 
-            // Al pulsar "Anterior", se calcula la posición anterior
+            
             $(document).on("click", "#btnanterior", function(){
                 var anterior = posicion - 1;
                 if(anterior < 1){
@@ -35,7 +35,7 @@
                 loadPartial(anterior);
             });
 
-            // Al pulsar "Siguiente", se calcula la posición siguiente
+            
             $(document).on("click", "#btnsiguiente", function(){
                 var siguiente = posicion + 1;
                 if(siguiente > numReg){
@@ -44,7 +44,7 @@
                 loadPartial(siguiente);
             });
 
-            // Al pulsar "Último", se carga la última posición
+            
             $(document).on("click", "#btnultimo", function(){
                 loadPartial(numReg);
             });
